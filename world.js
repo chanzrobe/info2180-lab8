@@ -6,14 +6,15 @@ function ajaxFunction(){
 		if(ajaxRequest.readyState == 4){
         	var xmlDocument = ajaxRequest.responseXML;
         	var xmlDoc = ajaxRequest.responseText;
+        	//alert(xmlDoc);
 			var parser=new DOMParser();
   			var xmlDoc2=parser.parseFromString(xmlDoc,"text/xml");
         	//alert(xmlDoc2);
 			var next = "";
 			var text = xmlDoc2.getElementsByTagName("li");
+			//alert(text.length);
 			for (var i=0; i<text.length; i++){
-				//alert(text[i]);
-				next += text[i].firstChild.nodeValue;
+				next += text[i].value;
 			}
 			document.getElementById("result").innerHTML=next;
 			alert(next);
